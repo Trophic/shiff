@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Film Session Booking</title>
-    <style>
-        :root {
-            --primary: #1a237e;
-            --primary-light: #534bae;
-            --secondary: #ff3d00;
-            --light: #f5f5f5;
-            --dark: #212121;
-            --success: #4caf50;
-        }
-        
+    <title>SHIFF</title>
+    <style>     
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,20 +13,55 @@
         }
         
         body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: #6a5acd;
+            color: white;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .sidebar-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
+        }
+        
+        .sidebar-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .welcome-message {
+            margin-bottom: 2rem;
+        }
+        
+        .content-wrapper {
+            flex: 1;
         }
         
         header {
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 1rem 2rem;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
         
+        header h1 {
+            color: #6a5acd;
+        }
+
         nav {
-            background: var(--primary-light);
+            background:#b0a7e9;
             display: flex;
             justify-content: center;
         }
@@ -47,15 +73,13 @@
         }
         
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color:#000000;
         }
         
         main {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 2rem;
         }
-        
+      
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -72,7 +96,7 @@
         }
         
         .film-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px);
         }
         
         .film-image {
@@ -89,7 +113,7 @@
         .film-title {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: #6a5acd;
         }
         
         .film-info {
@@ -104,7 +128,6 @@
         }
         
         .session-time {
-            background: var(--light);
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 0.5rem;
@@ -116,12 +139,17 @@
             background: #e3f2fd;
         }
         
-        .session-time.selected {
-            background: var(--primary);
-            color: white;
-        }
-        
         @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
             .container {
                 flex-direction: column;
             }
@@ -129,69 +157,69 @@
     </style>
 </head>
 <body>
-    <header>
-      	<img></img>
-        <h1>SHIFF</h1>
-    </header>
+    <div class="sidebar">
+        <h2 class="sidebar-title">Welcome to SHIFF</h2>
+        <div class="sidebar-content">
+            <div class="welcome-message">
+                <p>Welcome to the SHIFF paragraph</p>
+                <br>
+                <p>Second thing</p>
+            </div>
+            <div class="festival-dates">
+                <h3>Festival Dates</h3>
+                <p>April 5 - April 15, 2025</p>
+            </div>
+        </div>
+    </div>
     
-    <nav>
-        <a href="#nowShowing">Tickets</a>
-        <a href="#comingSoon">Program</a>
-        <a href="#locations">Festival info</a>
-        <a href="#about">About</a>
-    </nav>
-    
-    <main>
-        <h2>Now Showing</h2>
-        <div class="container">
-            <div class="film-list">
-                <!-- Film Cards -->
-                <div class="film-card" data-film-id="1">
-                    <div class="film-image" style="background-image: url('/api/placeholder/400/200')"></div>
-                    <div class="film-details">
-                        <h3 class="film-title">Interstellar Journey</h3>
-                        <p class="film-info">Sci-Fi | 2h 45m | PG-13</p>
-                        <p>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
-                        <h4>Tuesday Sessions</h4>
-                        <div class="sessions" data-film="Interstellar Journey">
-                          <div class="session-time" data-time="10:00 AM">10:00 AM</div></div>
-                           <h4>Wednesday Sessions</h4><div class="sessions" data-film="Interstellar Journey">
-                             <div class="session-time" data-time="1:30 PM">1:30 PM</div></div>
+    <div class="content-wrapper">
+        <header>
+            <img src="/api/placeholder/50/50">
+            <h1>SHIFF</h1>
+        </header>
+        <nav>
+            <a href="#nowShowing">Tickets</a>
+            <a href="#comingSoon">Program</a>
+            <a href="#locations">Festival info</a>
+            <a href="#about">About</a>
+        </nav>
+        <main>
+            <div class="container">
+                <div class="film-list">
+                  
+                    <div class="film-card">
+                        <div class="film-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="film-details">
+                            <h3 class="film-title">Interstellar Journey</h3>
+                            <p class="film-info">Sci-Fi | 2h 45m | PG-13</p>
+                            <p>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+                            <h4>Tuesday Sessions</h4>
+                            <div class="sessions" data-film="Interstellar Journey">
+                                <div class="session-time" data-time="10:00 AM">10:00 AM</div>
+                            </div>
+                            <h4>Wednesday Sessions</h4>
+                            <div class="sessions" data-film="Interstellar Journey">
+                                <div class="session-time" data-time="1:30 PM">1:30 PM</div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 
-                <div class="film-card" data-film-id="2">
-                    <div class="film-image" style="background-image: url('/api/placeholder/400/200')"></div>
-                    <div class="film-details">
-                        <h3 class="film-title">The Last Guardian</h3>
-                        <p class="film-info">Adventure | 2h 10m | PG</p>
-                        <p>A young orphan forms an unlikely bond with a great mythical creature while on a journey to save his homeland.</p>
-                        <h4>Available Sessions</h4>
-                        <div class="sessions" data-film="The Last Guardian">
-                            <div class="session-time" data-time="11:15 AM">11:15 AM</div>
-                            <div class="session-time" data-time="2:45 PM">2:45 PM</div>
-                            <div class="session-time" data-time="6:30 PM">6:30 PM</div>
-                            <div class="session-time" data-time="9:15 PM">9:15 PM</div>
+                    <div class="film-card">
+                        <div class="film-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="film-details">
+                            <h3 class="film-title">The Last Guardian</h3>
+                            <p class="film-info">Adventure | 2h 10m | PG</p>
+                            <p>A young orphan forms a bond with a mysterious creature as they navigate through an ancient, ruined world.</p>
+                            <h4>Thursday Sessions</h4>
+                            <div class="sessions" data-film="The Last Guardian">
+                                <div class="session-time" data-time="11:15 AM">11:15 AM</div>
+                                <div class="session-time" data-time="2:45 PM">2:45 PM</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="film-card" data-film-id="3">
-                    <div class="film-image" style="background-image: url('/api/placeholder/400/200')"></div>
-                    <div class="film-details">
-                        <h3 class="film-title">Midnight Mystery</h3>
-                        <p class="film-info">Thriller | 1h 55m | R</p>
-                        <p>A detective races against time to solve a series of mysterious disappearances in a small coastal town.</p>
-                        <h4>Available Sessions</h4>
-                        <div class="sessions" data-film="Midnight Mystery">
-                            <div class="session-time" data-time="12:00 PM">12:00 PM</div>
-                            <div class="session-time" data-time="3:15 PM">3:15 PM</div>
-                            <div class="session-time" data-time="7:00 PM">7:00 PM</div>
-                            <div class="session-time" data-time="10:30 PM">10:30 PM</div>
-                        </div>
-                    </div>
-                </div>
-    </main>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
